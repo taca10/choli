@@ -49,6 +49,9 @@ test:
 #
 production:
   <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: choli_production
   username: choli
   password: <%= ENV['CHOLI_DATABASE_PASSWORD'] %>
