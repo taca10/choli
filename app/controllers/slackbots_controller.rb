@@ -5,9 +5,8 @@ class SlackbotsController < ApplicationController
   end
 
   def event
-
     @body = JSON.parse(request.body.read)
-    if @body['event']['type'] == 'message' && @body['event']['text'].include?('<@US68T0M1Q>')
+    # if @body['event']['type'] == 'message' && @body['event']['text'].include?('<@US68T0M1Q>')
       render status: 200, json: { status: 200 }
 
       case @body['type']
@@ -25,9 +24,9 @@ class SlackbotsController < ApplicationController
       )
         # ZozoScraping.fetch_wear_page("https://wear.jp/men-category/tops/knit-sweater/")
       end
-    else
-      p "slack_message_fail"
+    # else
+      # p "slack_message_fail"
       head :ok
-    end
+    # end
   end
 end
