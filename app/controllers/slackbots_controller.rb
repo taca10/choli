@@ -7,12 +7,12 @@ class SlackbotsController < ApplicationController
   def event
     @body = JSON.parse(request.body.read)
     # if @body['event']['type'] == 'message' && @body['event']['text'].include?('<@US68T0M1Q>')
-      render status: 200, json: { status: 200 }
 
       case @body['type']
       when 'url_verification'
         render json: @body
       when 'event_callback'
+      render status: 200, json: { status: 200 }
       Slack.configure do |config|
         config.token = ENV['SLACK_OAUTH_ACCESS_TOKEN']
       end
